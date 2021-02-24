@@ -26,39 +26,36 @@
                 android:id="@+id/radioButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Yes"
-                android:onClick="checkButton" />
+                android:text="Yes" />
 
             <RadioButton
                 android:id="@+id/radioButton2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="No"
-                android:onClick="checkButton" />
+                android:text="No" />
         </RadioGroup>
 
-        <TextView
-            android:id="@+id/textView3"
+        <EditText
+            android:id="@+id/editTextNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="How many types of fertilizers were used this week?" />
-
-        <SeekBar
-            android:id="@+id/seekBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:progress="1" />
+            android:ems="10"
+            android:inputType="number"
+            android:text="How many types of fertilizers were used this week?"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name of fertilizer used" />
+            android:text="What is the name of fertilizers used?"
+            android:visibility="invisible" />
 
         <RadioGroup
             android:id="@+id/rg2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:visibility="invisible">
 
             <RadioButton
                 android:id="@+id/radioButton3"
@@ -97,12 +94,14 @@
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="How did you apply fertilizer?" />
+            android:text="How did you apply fertilizer?"
+            android:visibility="invisible" />
 
         <RadioGroup
             android:id="@+id/rg3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:visibility="invisible">
 
             <RadioButton
                 android:id="@+id/radioButton7"
@@ -141,12 +140,14 @@
             android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="What is the fertilizer measuring unit?" />
+            android:text="What is the fertilizer measuring unit?"
+            android:visibility="invisible" />
 
         <RadioGroup
             android:id="@+id/rg4"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:visibility="invisible">
 
             <RadioButton
                 android:id="@+id/radioButton11"
@@ -189,20 +190,22 @@
         </RadioGroup>
 
         <EditText
-            android:id="@+id/editTextTextPersonName4"
+            android:id="@+id/editTextNumber2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="What is the bag volume of the fertilizer?" />
+            android:inputType="number"
+            android:text="What is the bag volume of fertilizers used?"
+            android:visibility="invisible" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName5"
+            android:id="@+id/editTextNumber3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="How many bags did you use?" />
+            android:inputType="number"
+            android:text="How many bags did you use?"
+            android:visibility="invisible" />
 
     </LinearLayout>
 </RelativeLayout>
