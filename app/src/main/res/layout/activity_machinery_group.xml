@@ -9,7 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="visible">
 
         <TextView
             android:id="@+id/textView16"
@@ -39,12 +40,14 @@
             android:id="@+id/textView17"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="What kind of machinery did you use?" />
+            android:text="What kind of machinery did you use?"
+            android:visibility="gone" />
 
         <RadioGroup
             android:id="@+id/rg9"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:visibility="gone">
 
             <RadioButton
                 android:id="@+id/radioButton46"
@@ -94,18 +97,18 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="If other, specify kind of machinery used" />
+                android:hint="If other, specify kind of machinery used" />
         </RadioGroup>
 
-        <TextView
-            android:id="@+id/textView18"
+        <EditText
+            android:id="@+id/editTextNumber7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="For how many hours was machinery used in the plot this week?" />
+            android:ems="10"
+            android:hint="For how many hours was machinery used in the plot this week?"
+            android:inputType="number"
+            android:visibility="gone" />
 
-        <SeekBar
-            android:id="@+id/seekBar4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

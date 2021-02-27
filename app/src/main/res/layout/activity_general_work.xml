@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="What kind of other work was done in the plot this week?" />
+            android:hint="What kind of other work was done in the plot this week?"/>
 
         <EditText
             android:id="@+id/editTextTextPersonName17"
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Total days of HH work in the plot this week (if none, write 0)" />
+            android:hint="Total days of HH work in the plot this week (if none, write 0)"/>
 
         <EditText
             android:id="@+id/editTextTextPersonName18"
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Total days of hired labor work in the plot this week (if none, write 0)" />
+            android:hint="Total days of hired labor work in the plot this week (if none, write 0)"/>
 
         <EditText
             android:id="@+id/editTextTextPersonName19"
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="How many labors work in the plot this week?" />
+            android:hint="How many labors work in the plot this week?"/>
 
         <EditText
             android:id="@+id/editTextTextPersonName20"
@@ -49,6 +49,6 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="What was cost of one day of 1 hired labor?" />
+            android:hint="What was cost of one day of 1 hired labor?"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

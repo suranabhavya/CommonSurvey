@@ -46,7 +46,8 @@ public class GeneralWork extends Step<String> {
         EditText laborWorkDays = generalWorkData.findViewById(R.id.editTextTextPersonName18);
         EditText noOfLaborWork = generalWorkData.findViewById(R.id.editTextTextPersonName19);
         EditText costLabor = generalWorkData.findViewById(R.id.editTextTextPersonName20);
-        return null;
+
+        return generalWorkData;
     }
 
     @Override

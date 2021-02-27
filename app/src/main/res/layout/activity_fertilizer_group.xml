@@ -41,21 +41,21 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            android:text="How many types of fertilizers were used this week?"
-            android:visibility="invisible" />
+            android:hint="How many types of fertilizers were used this week?"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="What is the name of fertilizers used?"
-            android:visibility="invisible" />
+            android:visibility="gone" />
 
         <RadioGroup
             android:id="@+id/rg2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="invisible">
+            android:visibility="gone">
 
             <RadioButton
                 android:id="@+id/radioButton3"
@@ -86,8 +86,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="If other, specify name of the fertilizer used" />
+                android:hint="If other, specify name of the fertilizer used"
+                android:inputType="textPersonName" />
         </RadioGroup>
 
         <TextView
@@ -95,13 +95,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="How did you apply fertilizer?"
-            android:visibility="invisible" />
+            android:visibility="gone" />
 
         <RadioGroup
             android:id="@+id/rg3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="invisible">
+            android:visibility="gone">
 
             <RadioButton
                 android:id="@+id/radioButton7"
@@ -133,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="If other, specify how did you apply fertilizer" />
+                android:hint="If other, specify how did you apply fertilizer"/>
         </RadioGroup>
 
         <TextView
@@ -141,13 +141,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="What is the fertilizer measuring unit?"
-            android:visibility="invisible" />
+            android:visibility="gone" />
 
         <RadioGroup
             android:id="@+id/rg4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="invisible">
+            android:visibility="gone">
 
             <RadioButton
                 android:id="@+id/radioButton11"
@@ -185,7 +185,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="If other, specify other fertilizer unit" />
+                android:hint="If other, specify other fertilizer unit"/>
 
         </RadioGroup>
 
@@ -195,8 +195,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            android:text="What is the bag volume of fertilizers used?"
-            android:visibility="invisible" />
+            android:hint="What is the bag volume of fertilizers used?"
+            android:visibility="gone" />
 
         <EditText
             android:id="@+id/editTextNumber3"
@@ -204,8 +204,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            android:text="How many bags did you use?"
-            android:visibility="invisible" />
+            android:hint="How many bags did you use?"
+            android:visibility="gone" />
 
     </LinearLayout>
 </RelativeLayout>

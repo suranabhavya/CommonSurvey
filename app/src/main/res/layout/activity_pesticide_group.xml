@@ -35,27 +35,27 @@
                 android:text="No" />
         </RadioGroup>
 
-        <TextView
-            android:id="@+id/textView5"
+        <EditText
+            android:id="@+id/editTextNumber8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="How many types of pesticides/fungicides were used this week?" />
-
-        <SeekBar
-            android:id="@+id/seekBar2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:ems="10"
+            android:hint="How many types of pesticides were used this week?"
+            android:inputType="number"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="What is the name of pesticide/fungicide used?" />
+            android:text="What is the name of pesticide/fungicide used?"
+            android:visibility="gone" />
 
         <RadioGroup
             android:id="@+id/rg11"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:visibility="gone">
 
             <RadioButton
                 android:id="@+id/radioButton18"
@@ -80,20 +80,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="If other, specify name of pesticide/fungicide used?" />
+                android:hint="If other, specify name of pesticide/fungicide used?"
+                android:inputType="textPersonName" />
         </RadioGroup>
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="What is the pesticide/fungicide measuring units?" />
+            android:text="What is the pesticide/fungicide measuring units?"
+            android:visibility="gone" />
 
         <RadioGroup
             android:id="@+id/rg12"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:visibility="gone">
 
             <RadioButton
                 android:id="@+id/radioButton21"
@@ -130,24 +132,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="If other, specify the measuring unit" />
+                android:hint="If other, specify the measuring unit"
+                android:inputType="textPersonName" />
         </RadioGroup>
 
         <EditText
-            android:id="@+id/editTextTextPersonName8"
+            android:id="@+id/editTextNumber9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="What is the bottle volume of the pesticide?" />
+            android:hint="What is the bottle volume of the pesticide?"
+            android:inputType="number"
+            android:visibility="gone" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName9"
+            android:id="@+id/editTextNumber10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="How many bottles of pesticide did you use?" />
+            android:hint="How many bottles of pesticide did you use?"
+            android:inputType="number"
+            android:visibility="gone" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

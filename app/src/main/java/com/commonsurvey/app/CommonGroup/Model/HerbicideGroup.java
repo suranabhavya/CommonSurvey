@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.commonsurvey.app.R;
 
@@ -45,25 +46,60 @@ public class HerbicideGroup extends Step<String> {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View herbicideGroupData = inflater.inflate(R.layout.activity_herbicide_group, null, false);
         RadioGroup herbicideRadioGroup1 = (RadioGroup) herbicideGroupData.findViewById(R.id.rg5);
-        RadioButton herbicideYes = (RadioButton) herbicideGroupData.findViewById(R.id.radioButton33);
-        RadioButton herbicideNo = (RadioButton) herbicideGroupData.findViewById(R.id.radioButton34);
-        SeekBar herbicideSeekBar1 = (SeekBar) herbicideGroupData.findViewById(R.id.seekBar3);
+        EditText herbicideNum = herbicideGroupData.findViewById(R.id.editTextNumber4);
+        TextView textView2 = herbicideGroupData.findViewById(R.id.textView14);
         RadioGroup herbicideRadioGroup2 = (RadioGroup) herbicideGroupData.findViewById(R.id.rg6);
-        RadioButton surakksha = (RadioButton) herbicideGroupData.findViewById(R.id.radioButton35);
-        RadioButton topik = (RadioButton) herbicideGroupData.findViewById(R.id.radioButton36);
-        RadioButton upl = (RadioButton) herbicideGroupData.findViewById(R.id.radioButton37);
-        RadioButton otherHerbicideName = (RadioButton) herbicideGroupData.findViewById(R.id.radioButton38);
-        EditText otherFertilizerName = herbicideGroupData.findViewById(R.id.editTextTextPersonName11);
+        EditText otherHerbicideName = herbicideGroupData.findViewById(R.id.editTextTextPersonName11);
+        TextView textView3 = herbicideGroupData.findViewById(R.id.textView15);
         RadioGroup herbicideRadioGroup3 = (RadioGroup) herbicideGroupData.findViewById(R.id.rg7);
-        RadioButton kiloGrams = (RadioButton) herbicideGroupData.findViewById(R.id.radioButton39);
-        RadioButton grams = (RadioButton) herbicideGroupData.findViewById(R.id.radioButton40);
-        RadioButton litres = (RadioButton) herbicideGroupData.findViewById(R.id.radioButton41);
-        RadioButton milliLitres = (RadioButton) herbicideGroupData.findViewById(R.id.radioButton42);
-        RadioButton otherUnit = (RadioButton) herbicideGroupData.findViewById(R.id.radioButton43);
         EditText otherHerbicideUnit = herbicideGroupData.findViewById(R.id.editTextTextPersonName12);
-        EditText herbicideBagVolume = herbicideGroupData.findViewById(R.id.editTextTextPersonName13);
-        EditText noOfHerbicideBag = herbicideGroupData.findViewById(R.id.editTextTextPersonName14);
-        return null;
+        EditText herbicideBagVolume = herbicideGroupData.findViewById(R.id.editTextNumber5);
+        EditText noOfHerbicideBag = herbicideGroupData.findViewById(R.id.editTextNumber6);
+
+        herbicideRadioGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton checked = group.findViewById(group.getCheckedRadioButtonId());
+                String checkedString = checked.getText().toString();
+
+                if(checkedString.equals("Yes")){
+                    //make the next radio button group visible
+                    herbicideNum.setVisibility(View.VISIBLE);
+                    textView2.setVisibility(View.VISIBLE);
+                    herbicideRadioGroup2.setVisibility(View.VISIBLE);
+                    herbicideRadioGroup2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                        @Override
+                        public void onCheckedChanged(RadioGroup group, int checkedId) {
+                            RadioButton checked = group.findViewById(group.getCheckedRadioButtonId());
+                            String checkedString = checked.getText().toString();
+
+                            if(checkedString.equals("Other")){
+                                otherHerbicideName.setVisibility(View.VISIBLE);
+                            }
+                            textView3.setVisibility(View.VISIBLE);
+                            herbicideRadioGroup3.setVisibility(View.VISIBLE);
+                            herbicideRadioGroup3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                                @Override
+                                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                                    RadioButton checked = group.findViewById(group.getCheckedRadioButtonId());
+                                    String checkedString = checked.getText().toString();
+
+                                    if(checkedString.equals("Other")) {
+                                        otherHerbicideUnit.setVisibility(View.VISIBLE);
+                                    }
+                                    herbicideBagVolume.setVisibility(View.VISIBLE);
+                                    noOfHerbicideBag.setVisibility(View.VISIBLE);
+                                }
+                            });
+                        }
+                    });
+                }else{
+
+                }
+            }
+        });
+
+        return herbicideGroupData;
     }
 
     @Override

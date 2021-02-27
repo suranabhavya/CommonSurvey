@@ -36,27 +36,28 @@
 
         </RadioGroup>
 
-        <TextView
-            android:id="@+id/textView13"
+
+        <EditText
+            android:id="@+id/editTextNumber4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="How many types of herbicides were used this week?" />
-
-        <SeekBar
-            android:id="@+id/seekBar3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:ems="10"
+            android:hint="How many types of herbicides were used this week?"
+            android:inputType="number"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/textView14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="What is the name of herbicides used?" />
+            android:text="What is the name of herbicides used?"
+            android:visibility="gone" />
 
         <RadioGroup
             android:id="@+id/rg6"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:visibility="gone">
 
             <RadioButton
                 android:id="@+id/radioButton35"
@@ -88,19 +89,21 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="If other, specify name of the herbicide used" />
+                android:hint="If other, specify name of the herbicide used" />
         </RadioGroup>
 
         <TextView
             android:id="@+id/textView15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="What is the herbicide measuring unit?" />
+            android:text="What is the herbicide measuring unit?"
+            android:visibility="gone" />
 
         <RadioGroup
             android:id="@+id/rg7"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:visibility="gone">
 
             <RadioButton
                 android:id="@+id/radioButton39"
@@ -138,23 +141,25 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="If other, specify the measuring unit" />
+                android:hint="If other, specify the measuring unit"/>
         </RadioGroup>
 
         <EditText
-            android:id="@+id/editTextTextPersonName13"
+            android:id="@+id/editTextNumber5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="What is the bag volume of the herbicide used?" />
+            android:hint="What is the bag volume of the herbicide used?"
+            android:inputType="number"
+            android:visibility="gone" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName14"
+            android:id="@+id/editTextNumber6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="How many bags did you use?" />
+            android:hint="How many bags did you use?"
+            android:inputType="number"
+            android:visibility="gone" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

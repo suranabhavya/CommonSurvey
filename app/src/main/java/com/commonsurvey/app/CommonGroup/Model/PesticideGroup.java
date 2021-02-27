@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.commonsurvey.app.R;
 
@@ -45,24 +46,60 @@ public class PesticideGroup extends Step<String> {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View pesticideGroupData = inflater.inflate(R.layout.activity_pesticide_group, null, false);
         RadioGroup pesticideRadioGroup1 = (RadioGroup) pesticideGroupData.findViewById(R.id.rg10);
-        RadioButton pesticideYes = (RadioButton) pesticideGroupData.findViewById(R.id.radioButton16);
-        RadioButton pesticideNo = (RadioButton) pesticideGroupData.findViewById(R.id.radioButton17);
-        SeekBar pesticideSeekBar1 = (SeekBar) pesticideGroupData.findViewById(R.id.seekBar2);
+        EditText numPesticidesType = pesticideGroupData.findViewById(R.id.editTextNumber8);
+        TextView textView1 = pesticideGroupData.findViewById(R.id.textView8);
         RadioGroup pesticideRadioGroup2 = (RadioGroup) pesticideGroupData.findViewById(R.id.rg11);
-        RadioButton leader = (RadioButton) pesticideGroupData.findViewById(R.id.radioButton18);
-        RadioButton pesticideSuper = (RadioButton) pesticideGroupData.findViewById(R.id.radioButton19);
-        RadioButton otherPesticide = (RadioButton) pesticideGroupData.findViewById(R.id.radioButton20);
         EditText otherPesticideName = pesticideGroupData.findViewById(R.id.editTextTextPersonName6);
+        TextView textView2 = pesticideGroupData.findViewById(R.id.textView9);
         RadioGroup pesticideRadioGroup3 = (RadioGroup) pesticideGroupData.findViewById(R.id.rg12);
-        RadioButton kiloGrams = (RadioButton) pesticideGroupData.findViewById(R.id.radioButton21);
-        RadioButton grams = (RadioButton) pesticideGroupData.findViewById(R.id.radioButton22);
-        RadioButton litres = (RadioButton) pesticideGroupData.findViewById(R.id.radioButton23);
-        RadioButton milliLitres = (RadioButton) pesticideGroupData.findViewById(R.id.radioButton24);
-        RadioButton otherUnit = (RadioButton) pesticideGroupData.findViewById(R.id.radioButton25);
         EditText otherPesticideUnit = pesticideGroupData.findViewById(R.id.editTextTextPersonName7);
-        EditText pesticideBottleVolume = pesticideGroupData.findViewById(R.id.editTextTextPersonName8);
-        EditText noOfPesticideBottle = pesticideGroupData.findViewById(R.id.editTextTextPersonName9);
-        return null;
+        EditText pesticideBottleVolume = pesticideGroupData.findViewById(R.id.editTextNumber9);
+        EditText noOfPesticideBottle = pesticideGroupData.findViewById(R.id.editTextNumber10);
+
+        pesticideRadioGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton checked = group.findViewById(group.getCheckedRadioButtonId());
+                String checkedString = checked.getText().toString();
+
+                if(checkedString.equals("Yes")){
+                    //make the next radio button group visible
+                    numPesticidesType.setVisibility(View.VISIBLE);
+                    textView1.setVisibility(View.VISIBLE);
+                    pesticideRadioGroup2.setVisibility(View.VISIBLE);
+                    pesticideRadioGroup2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                        @Override
+                        public void onCheckedChanged(RadioGroup group, int checkedId) {
+                            RadioButton checked = group.findViewById(group.getCheckedRadioButtonId());
+                            String checkedString = checked.getText().toString();
+
+                            if(checkedString.equals("Other")){
+                                otherPesticideName.setVisibility(View.VISIBLE);
+                            }
+                            textView2.setVisibility(View.VISIBLE);
+                            pesticideRadioGroup3.setVisibility(View.VISIBLE);
+                            pesticideRadioGroup3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                                @Override
+                                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                                    RadioButton checked = group.findViewById(group.getCheckedRadioButtonId());
+                                    String checkedString = checked.getText().toString();
+
+                                    if(checkedString.equals("Other")) {
+                                        otherPesticideUnit.setVisibility(View.VISIBLE);
+                                    }
+                                    pesticideBottleVolume.setVisibility(View.VISIBLE);
+                                    noOfPesticideBottle.setVisibility(View.VISIBLE);
+                                }
+                            });
+                        }
+                    });
+                }else{
+
+                }
+            }
+        });
+
+        return pesticideGroupData;
     }
 
     @Override

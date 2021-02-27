@@ -39,12 +39,14 @@
             android:id="@+id/textView11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="How did you treat the weed menace?" />
+            android:text="How did you treat the weed menace?"
+            android:visibility="gone" />
 
         <RadioGroup
             android:id="@+id/rg14"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:visibility="gone">
 
             <RadioButton
                 android:id="@+id/radioButton28"
@@ -82,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="If other, specify how did you treat the weed menace?" />
+                android:hint="If other, specify how did you treat the weed menace?" />
         </RadioGroup>
 
     </LinearLayout>

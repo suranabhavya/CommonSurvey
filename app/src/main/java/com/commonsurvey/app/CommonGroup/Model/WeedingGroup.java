@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.commonsurvey.app.R;
 
@@ -45,16 +46,38 @@ public class WeedingGroup extends Step<String> {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View weedingGroupData = inflater.inflate(R.layout.activity_weeding_group, null, false);
         RadioGroup weedingRadioGroup1 = (RadioGroup) weedingGroupData.findViewById(R.id.rg13);
-        RadioButton weedingYes = (RadioButton) weedingGroupData.findViewById(R.id.radioButton26);
-        RadioButton weedingNo = (RadioButton) weedingGroupData.findViewById(R.id.radioButton27);
+        TextView textView1 = weedingGroupData.findViewById(R.id.textView11);
         RadioGroup weedingRadioGroup2 = (RadioGroup) weedingGroupData.findViewById(R.id.rg14);
-        RadioButton none = (RadioButton) weedingGroupData.findViewById(R.id.radioButton28);
-        RadioButton manual = (RadioButton) weedingGroupData.findViewById(R.id.radioButton29);
-        RadioButton withMachine = (RadioButton) weedingGroupData.findViewById(R.id.radioButton30);
-        RadioButton spraying = (RadioButton) weedingGroupData.findViewById(R.id.radioButton31);
-        RadioButton otherTechnique = (RadioButton) weedingGroupData.findViewById(R.id.radioButton32);
         EditText otherTechniqueName = weedingGroupData.findViewById(R.id.editTextTextPersonName10);
-        return null;
+
+        weedingRadioGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton checked = group.findViewById(group.getCheckedRadioButtonId());
+                String checkedString = checked.getText().toString();
+
+                if(checkedString.equals("Yes")){
+                    //make the next radio button group visible
+                    textView1.setVisibility(View.VISIBLE);
+                    weedingRadioGroup2.setVisibility(View.VISIBLE);
+                    weedingRadioGroup2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                        @Override
+                        public void onCheckedChanged(RadioGroup group, int checkedId) {
+                            RadioButton checked = group.findViewById(group.getCheckedRadioButtonId());
+                            String checkedString = checked.getText().toString();
+
+                            if(checkedString.equals("Other")){
+                                otherTechniqueName.setVisibility(View.VISIBLE);
+                            }
+                        }
+                    });
+                }else{
+
+                }
+            }
+        });
+
+        return weedingGroupData;
     }
 
     @Override
