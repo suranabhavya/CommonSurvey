@@ -1,28 +1,73 @@
 package com.commonsurvey.app.CommonGroup.Model;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.commonsurvey.app.R;
 
 import ernestoyaquello.com.verticalstepperform.Step;
 
-public class HerbicideGroup extends Step<String> {
+public class HerbicideGroup extends Step<HerbicideGroup.HerbicideGroupData> {
+
+    class HerbicideGroupData{
+        String herbicide_use;
+        String herbicide_types_num;
+        String herbicide_used_name_wheat;
+        String other_herbicide_used_wheat;
+        String herbicides_units;
+        String other_herbicide_units;
+        String herbicide_volume;
+        String herbicide_bags_amount_;
+
+        public String getHerbicide_types_num() {
+            return herbicide_types_num;
+        }
+
+        public void setHerbicide_types_num(String herbicide_types_num) {
+            this.herbicide_types_num = herbicide_types_num;
+        }
+
+        public void setHerbicide_used_name_wheat(String herbicide_used_name_wheat) {
+            this.herbicide_used_name_wheat = herbicide_used_name_wheat;
+        }
+
+        public void setOther_herbicide_used_wheat(String other_herbicide_used_wheat) {
+            this.other_herbicide_used_wheat = other_herbicide_used_wheat;
+        }
+
+        public void setHerbicides_units(String herbicides_units) {
+            this.herbicides_units = herbicides_units;
+        }
+
+        public void setOther_herbicide_units(String other_herbicide_units) {
+            this.other_herbicide_units = other_herbicide_units;
+        }
+
+        public void setHerbicide_volume(String herbicide_volume) {
+            this.herbicide_volume = herbicide_volume;
+        }
+
+        public void setHerbicide_bags_amount_(String herbicide_bags_amount_) {
+            this.herbicide_bags_amount_ = herbicide_bags_amount_;
+        }
+
+        public void setHerbicide_use(String herbicide_use) {
+            this.herbicide_use = herbicide_use;
+        }
+    }
 
     protected HerbicideGroup(String title) {
         super(title);
     }
 
     @Override
-    public String getStepData() {
+    public HerbicideGroupData getStepData() {
         return null;
     }
 
@@ -32,29 +77,115 @@ public class HerbicideGroup extends Step<String> {
     }
 
     @Override
-    public void restoreStepData(String data) {
+    public void restoreStepData(HerbicideGroupData data) {
 
     }
 
     @Override
-    protected IsDataValid isStepDataValid(String stepData) {
+    protected IsDataValid isStepDataValid(HerbicideGroupData stepData) {
         return null;
     }
 
     @Override
     protected View createStepContentLayout() {
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        View herbicideGroupData = inflater.inflate(R.layout.activity_herbicide_group, null, false);
-        RadioGroup herbicideRadioGroup1 = (RadioGroup) herbicideGroupData.findViewById(R.id.rg5);
-        EditText herbicideNum = herbicideGroupData.findViewById(R.id.editTextNumber4);
-        TextView textView2 = herbicideGroupData.findViewById(R.id.textView14);
-        RadioGroup herbicideRadioGroup2 = (RadioGroup) herbicideGroupData.findViewById(R.id.rg6);
-        EditText otherHerbicideName = herbicideGroupData.findViewById(R.id.editTextTextPersonName11);
-        TextView textView3 = herbicideGroupData.findViewById(R.id.textView15);
-        RadioGroup herbicideRadioGroup3 = (RadioGroup) herbicideGroupData.findViewById(R.id.rg7);
-        EditText otherHerbicideUnit = herbicideGroupData.findViewById(R.id.editTextTextPersonName12);
-        EditText herbicideBagVolume = herbicideGroupData.findViewById(R.id.editTextNumber5);
-        EditText noOfHerbicideBag = herbicideGroupData.findViewById(R.id.editTextNumber6);
+        View herbicideGroup = inflater.inflate(R.layout.activity_herbicide_group, null, false);
+        RadioGroup herbicideRadioGroup1 = (RadioGroup) herbicideGroup.findViewById(R.id.rg5);
+        EditText herbicideNum = herbicideGroup.findViewById(R.id.editTextNumber4);
+        TextView textView2 = herbicideGroup.findViewById(R.id.textView14);
+        RadioGroup herbicideRadioGroup2 = (RadioGroup) herbicideGroup.findViewById(R.id.rg6);
+        EditText otherHerbicideName = herbicideGroup.findViewById(R.id.editTextTextPersonName11);
+        TextView textView3 = herbicideGroup.findViewById(R.id.textView15);
+        RadioGroup herbicideRadioGroup3 = (RadioGroup) herbicideGroup.findViewById(R.id.rg7);
+        EditText otherHerbicideUnit = herbicideGroup.findViewById(R.id.editTextTextPersonName12);
+        EditText herbicideBagVolume = herbicideGroup.findViewById(R.id.editTextNumber5);
+        EditText noOfHerbicideBag = herbicideGroup.findViewById(R.id.editTextNumber6);
+        HerbicideGroupData herbicideGroupData = new HerbicideGroupData();
+
+        herbicideNum.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                herbicideGroupData.setHerbicide_types_num(s.toString());
+            }
+        });
+
+        otherHerbicideName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                herbicideGroupData.setOther_herbicide_used_wheat(s.toString());
+            }
+        });
+
+        otherHerbicideUnit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                herbicideGroupData.setOther_herbicide_units(s.toString());
+            }
+        });
+
+        herbicideBagVolume.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                herbicideGroupData.setHerbicide_volume(s.toString());
+            }
+        });
+
+        noOfHerbicideBag.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                herbicideGroupData.setHerbicide_bags_amount_(s.toString());
+            }
+        });
 
         herbicideRadioGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -63,6 +194,7 @@ public class HerbicideGroup extends Step<String> {
                 String checkedString = checked.getText().toString();
 
                 if(checkedString.equals("Yes")){
+                    herbicideGroupData.setHerbicide_use("Yes");
                     //make the next radio button group visible
                     herbicideNum.setVisibility(View.VISIBLE);
                     textView2.setVisibility(View.VISIBLE);
@@ -76,6 +208,9 @@ public class HerbicideGroup extends Step<String> {
                             if(checkedString.equals("Other")){
                                 otherHerbicideName.setVisibility(View.VISIBLE);
                             }
+                            else {
+                                herbicideGroupData.setHerbicide_used_name_wheat(checkedString);
+                            }
                             textView3.setVisibility(View.VISIBLE);
                             herbicideRadioGroup3.setVisibility(View.VISIBLE);
                             herbicideRadioGroup3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -87,6 +222,9 @@ public class HerbicideGroup extends Step<String> {
                                     if(checkedString.equals("Other")) {
                                         otherHerbicideUnit.setVisibility(View.VISIBLE);
                                     }
+                                    else {
+                                        herbicideGroupData.setHerbicides_units(checkedString);
+                                    }
                                     herbicideBagVolume.setVisibility(View.VISIBLE);
                                     noOfHerbicideBag.setVisibility(View.VISIBLE);
                                 }
@@ -94,12 +232,12 @@ public class HerbicideGroup extends Step<String> {
                         }
                     });
                 }else{
-
+                    herbicideGroupData.setHerbicide_use("No");
                 }
             }
         });
 
-        return herbicideGroupData;
+        return herbicideGroup;
     }
 
     @Override

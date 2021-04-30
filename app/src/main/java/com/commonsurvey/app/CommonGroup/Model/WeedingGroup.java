@@ -1,28 +1,45 @@
 package com.commonsurvey.app.CommonGroup.Model;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.commonsurvey.app.R;
 
 import ernestoyaquello.com.verticalstepperform.Step;
 
-public class WeedingGroup extends Step<String> {
+public class WeedingGroup extends Step<WeedingGroup.WeedingGroupData> {
+
+    class WeedingGroupData {
+
+        String weed_menace;
+        String weed_treatment;
+        String other_weed_treatment;
+
+        public void setWeed_menace(String weed_menace) {
+            this.weed_menace = weed_menace;
+        }
+
+        public void setWeed_treatment(String weed_treatment) {
+            this.weed_treatment = weed_treatment;
+        }
+
+        public void setOther_weed_treatment(String other_weed_treatment) {
+            this.other_weed_treatment = other_weed_treatment;
+        }
+    }
 
     protected WeedingGroup(String title) {
         super(title);
     }
 
     @Override
-    public String getStepData() {
+    public WeedingGroupData getStepData() {
         return null;
     }
 
@@ -32,23 +49,41 @@ public class WeedingGroup extends Step<String> {
     }
 
     @Override
-    public void restoreStepData(String data) {
+    public void restoreStepData(WeedingGroupData data) {
 
     }
 
     @Override
-    protected IsDataValid isStepDataValid(String stepData) {
+    protected IsDataValid isStepDataValid(WeedingGroupData stepData) {
         return null;
     }
 
     @Override
     protected View createStepContentLayout() {
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        View weedingGroupData = inflater.inflate(R.layout.activity_weeding_group, null, false);
-        RadioGroup weedingRadioGroup1 = (RadioGroup) weedingGroupData.findViewById(R.id.rg13);
-        TextView textView1 = weedingGroupData.findViewById(R.id.textView11);
-        RadioGroup weedingRadioGroup2 = (RadioGroup) weedingGroupData.findViewById(R.id.rg14);
-        EditText otherTechniqueName = weedingGroupData.findViewById(R.id.editTextTextPersonName10);
+        View weedingGroup = inflater.inflate(R.layout.activity_weeding_group, null, false);
+        RadioGroup weedingRadioGroup1 = (RadioGroup) weedingGroup.findViewById(R.id.rg13);
+        TextView textView1 = weedingGroup.findViewById(R.id.textView11);
+        RadioGroup weedingRadioGroup2 = (RadioGroup) weedingGroup.findViewById(R.id.rg14);
+        EditText otherTechniqueName = weedingGroup.findViewById(R.id.editTextTextPersonName10);
+        WeedingGroupData weedingGroupData = new WeedingGroupData();
+
+        otherTechniqueName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                weedingGroupData.setOther_weed_treatment(s.toString());
+            }
+        });
 
         weedingRadioGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -57,6 +92,7 @@ public class WeedingGroup extends Step<String> {
                 String checkedString = checked.getText().toString();
 
                 if(checkedString.equals("Yes")){
+                    weedingGroupData.setWeed_menace("Yes");
                     //make the next radio button group visible
                     textView1.setVisibility(View.VISIBLE);
                     weedingRadioGroup2.setVisibility(View.VISIBLE);
@@ -69,15 +105,18 @@ public class WeedingGroup extends Step<String> {
                             if(checkedString.equals("Other")){
                                 otherTechniqueName.setVisibility(View.VISIBLE);
                             }
+                            else {
+                                weedingGroupData.setWeed_treatment(checkedString);
+                            }
                         }
                     });
                 }else{
-
+                    weedingGroupData.setWeed_menace("No");
                 }
             }
         });
 
-        return weedingGroupData;
+        return weedingGroup;
     }
 
     @Override
